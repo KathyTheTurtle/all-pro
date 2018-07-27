@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>AllPro Checklist</title>
     <style>
       legend {
@@ -14,9 +15,31 @@
     </style>
   </head>
   <body>
-    <h3>Cycle</h3>
-    <h3>Week</h3>
-    <h3>Day</h3>
+    <div>
+      <label for="cycle-select">Cycle</label>
+      <select id="cycle-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+    <div>
+      <label for="week-select">Week</label>
+      <select id="week-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div>
+      <label for="day-select">Day</label>
+      <select id="day-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
     <div id="exercises"></div>
     <script>
       (function() {
