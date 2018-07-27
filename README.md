@@ -1,5 +1,5 @@
 # all-pro
-A fitness trakcer for those following the AllPro beginner's routine.
+A fitness trakcer for those following the [AllPro beginner's routine.](https://forum.bodybuilding.com/showthread.php?t=155009423)
 
 This app will emphasize on the following:
 * Utility - it must be useful first and foremost
