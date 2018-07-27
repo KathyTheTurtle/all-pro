@@ -68,9 +68,21 @@
             }
           }
         }
+
+        // Save whatever is in the record object to local storage
         const save = () => {
           localStorage.setItem('all-pro', JSON.stringify(record));
         }
+
+        // Remove all the fieldsets
+        const clearCheckboxSets = () => {
+          let exercises = document.getElementById('exercises');
+          while (exercises.firstChild) {
+            exercises.removeChild(exercises.firstChild);
+          }
+        }
+
+        // Create a fieldset of the required sets for a given exercise
         const createCheckboxSet = (exerciseName, exercise) => {
           // First create the fieldset and add the legend
           const fieldSet = document.createElement('fieldset');
@@ -124,13 +136,20 @@
           const exercises = document.getElementById('exercises');
           exercises.appendChild(fieldSet);
         }
-        createCheckboxSet('Squats', record.exercise.squats);
-        createCheckboxSet('Bench Presses', record.exercise.benchPresses);
-        createCheckboxSet('Bent-over Rows', record.exercise.bentOverRows);
-        createCheckboxSet('Overhead Barbell Presses', record.exercise.overheadBarbellPresses);
-        createCheckboxSet('Stiff-legged Deadlifts', record.exercise.stiffLeggedDeadlifts);
-        createCheckboxSet('Barbell Curls', record.exercise.barbellCurls);
-        createCheckboxSet('Calf Raises', record.exercise.calfRaises);
+
+        // Clear and re-render all the fieldsets
+        const render = () => {
+          clearCheckboxSets();
+          createCheckboxSet('Squats', record.exercise.squats);
+          createCheckboxSet('Bench Presses', record.exercise.benchPresses);
+          createCheckboxSet('Bent-over Rows', record.exercise.bentOverRows);
+          createCheckboxSet('Overhead Barbell Presses', record.exercise.overheadBarbellPresses);
+          createCheckboxSet('Stiff-legged Deadlifts', record.exercise.stiffLeggedDeadlifts);
+          createCheckboxSet('Barbell Curls', record.exercise.barbellCurls);
+          createCheckboxSet('Calf Raises', record.exercise.calfRaises);
+        }
+
+        render();
       }());
     </script>    
   </body>
