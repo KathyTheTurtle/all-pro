@@ -31,11 +31,20 @@
   }
 
   // Add event listeners to the drop downs
-  ['cycle-select', 'week-select', 'day-select', 'unit-select'].forEach((id) => {
+  [
+    ['cycle-select', 'cycle'],
+    ['week-select', 'week'],
+    ['day-select', 'day'],
+    ['unit-select', 'unit']
+  ].forEach((info) => {
+    const id = info[0];
+    const type = info[1];
     const dropDown = document.getElementById(id);
+    dropDown.value = String(record[type]);
     dropDown.addEventListener('change', (event) => {
-      record.cycle = event.target.value;
+      record[type] = event.target.value;
       save();
+      render();
     });
   });
 
@@ -103,7 +112,7 @@
   }
 
   // Clear and re-render all the fieldsets
-  const render = () => {
+  function render() {
     clearCheckboxSets();
     createCheckboxSet('Squats', record.exercise.squats);
     createCheckboxSet('Bench Presses', record.exercise.benchPresses);
