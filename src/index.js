@@ -30,6 +30,15 @@
     localStorage.setItem('all-pro', JSON.stringify(record));
   }
 
+  // Add event listeners to the drop downs
+  ['cycle-select', 'week-select', 'day-select', 'unit-select'].forEach((id) => {
+    const dropDown = document.getElementById(id);
+    dropDown.addEventListener('change', (event) => {
+      record.cycle = event.target.value;
+      save();
+    });
+  });
+
   // Remove all the fieldsets
   const clearCheckboxSets = () => {
     let exercises = document.getElementById('exercises');
